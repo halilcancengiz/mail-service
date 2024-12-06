@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const transporter = nodemailer.createTransport({
   host: "smtp.ionos.de",
   port: 465, // STARTTLS için 587
-  secure: false, // STARTTLS için secure false olmalı
+  secure: true, // STARTTLS için secure false olmalı
   auth: {
     user: process.env.SMTP_USER, // Gmail adresiniz
     pass: process.env.SMTP_USER_PASSWORD, // Gmail App Password
