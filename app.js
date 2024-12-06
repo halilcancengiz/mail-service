@@ -21,8 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Nodemailer transporter ayarları
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587, // STARTTLS için 587
+  host: "smtp.ionos.de",
+  port: 465, // STARTTLS için 587
   secure: false, // STARTTLS için secure false olmalı
   auth: {
     user: process.env.SMTP_USER, // Gmail adresiniz
