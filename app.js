@@ -10,7 +10,7 @@ dotenv.config();
 
 // Sadece belirli bir kaynaktan CORS erişimi
 app.use(cors({
-  origin: ["https://facebookadsagentur.de"], // İzin verilen kaynaklar
+  origin: ["https://superagentur-marketing.de"], // İzin verilen kaynaklar
   methods: ["GET", "POST"], // İzin verilen HTTP metodları
   allowedHeaders: ["Content-Type", "Authorization"], // İzin verilen başlıklar
 }));
