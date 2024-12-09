@@ -10,7 +10,7 @@ dotenv.config();
 
 // Sadece belirli bir kaynaktan CORS erişimi
 app.use(cors({
-  origin: ["https://superagentur-marketing.de"], // İzin verilen kaynaklar
+  origin: ["https://superagentur-marketing.de","http://localhost:5173/"], // İzin verilen kaynaklar
   methods: ["GET", "POST"], // İzin verilen HTTP metodları
   allowedHeaders: ["Content-Type", "Authorization"], // İzin verilen başlıklar
 }));
