@@ -33,6 +33,11 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+
+app.get("/", (req, res) => {
+  res.status(200).send("Server is running and ready to receive requests.");
+});
+
 // Send-Mail API
 app.post("/api/send-mail", async (req, res) => {
   const data = req.body;
