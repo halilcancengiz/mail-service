@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const dotenv = require('dotenv');
-const https = require("https");
+
 const app = express();
 const PORT = 5000;
 dotenv.config();
@@ -31,10 +31,6 @@ const transporter = nodemailer.createTransport({
   tls: {
     rejectUnauthorized: false, // Sertifika hatalarını görmezden gelmek için
   },
-});
-
-app.get("/", (req, res) => {
-  res.status(200).send("Server is running and ready to receive requests.");
 });
 
 // Send-Mail API
@@ -114,14 +110,7 @@ app.post("/api/send-mail", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port: ${PORT}`);
-  
-  // Keep-alive mekanizmasını 5 dakika (300000 ms) sonra başlat
-  setTimeout(() => {
-    setInterval(() => {
-      https.get("https://marketingly-mail-service.onrender.com");
-      console.log("Keep-alive ping sent to prevent sleep mode.");
-    }, 600000); // Her 10 dakikada bir ping
-  }, 300000); // İlk ping 5 dakika sonra başlasın
+// Sunucuyu başlat
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`Server running on port: ${process.env.PORT}`);
 });
