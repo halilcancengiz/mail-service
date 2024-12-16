@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const dotenv = require('dotenv');
-
+const https = require("https");
 const app = express();
 const PORT = 5000;
 dotenv.config();
@@ -122,5 +122,5 @@ app.listen(PORT, () => {
   setInterval(() => {
     https.get("https://marketingly-mail-service.onrender.com");
     console.log("Keep-alive ping sent to prevent sleep mode.");
-  }, 600000); // 10 dakika (600000 ms)
-});
+  }, 600000);
+}); 
