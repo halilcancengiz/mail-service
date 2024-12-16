@@ -114,13 +114,14 @@ app.post("/api/send-mail", async (req, res) => {
   }
 });
 
-// Sunucuyu başlat
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}`);
   
-  // Keep-alive mekanizması (her 10 dakikada bir kendi kendine ping atar)
-  setInterval(() => {
-    https.get("https://marketingly-mail-service.onrender.com");
-    console.log("Keep-alive ping sent to prevent sleep mode.");
-  }, 600000);
-}); 
+  // Keep-alive mekanizmasını 5 dakika (300000 ms) sonra başlat
+  setTimeout(() => {
+    setInterval(() => {
+      https.get("https://marketingly-mail-service.onrender.com");
+      console.log("Keep-alive ping sent to prevent sleep mode.");
+    }, 600000); // Her 10 dakikada bir ping
+  }, 300000); // İlk ping 5 dakika sonra başlasın
+});
